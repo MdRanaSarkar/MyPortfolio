@@ -1,0 +1,116 @@
+{% extends "index.html" %}
+{% load static %}
+  {% block titlee%}
+      Protfolio Description
+  {% endblock titlee %}
+{%block mainbody%}
+<section class="page-title bg-2">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+          <h1>{{protfolio.category}}</h1>
+          <p>{{protfolio.title}}</p>
+      </div>
+
+      <div class="col-lg-5">
+        <ul class="list-inline header-breadcumb text-lg-right mt-5 mt-lg-0">
+          <li class="list-inline-item"><a href="{%url 'home' %}">Home</a></li>
+          <li class="list-inline-item">/</li>
+          <li class="list-inline-item">{{protfolio.category}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section service-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="projects-details">
+                    <img style="height: 400px" src="{{protfolio.imageurl}}" alt="" class="img-fluid">
+                    <div class="details mt-4">
+                        <div class="title mb-30">
+                            <h2>Project Description</h2>
+                        </div>
+                        <p>{{protfolio.description|safe}}</p>
+                    </div>
+                </div>
+
+                <div class="process-wrap mt-5">
+                    <div class="title mb-30">
+                        <h2>Tools i used</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="block mb-30">
+                                <h5 class="mb-3"><span>01.</span>Django </h5>
+                                <p>Django is a python based framework that is used for backend</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="block mb-30">
+                                <h5 class="mb-3"><span>02.</span>Html5</h5>
+                                <p>Used for web designing </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                             <div class="block mb-30">
+                                <h5 class="mb-3"><span>03.</span>Bootstrap4</h5>
+                                <p>Bootstrap 4 is the newest version of Bootstrap, which is the most popular HTML, CSS, and JavaScript framework for developing responsive, mobile-first website</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                             <div class="block mb-30">
+                                <h5 class="mb-3"><span>04.</span>Django Rest Framework</h5>
+                                <p>Django REST framework is a powerful and flexible toolkit for building Web APIs. Some reasons you might want to use REST framework. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-btn mt-5">
+                        <h3>Have a project on mind? Lets work together</h3>
+                        <a href="{%url 'home'%}#contact" class="btn btn-secondary btn-rounded mt-4">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="page-sidebar">
+                    <div class="project-info">
+                        <h3 class="mb-3 border-bottom pb-3">Project Info</h3>
+
+                        <ul class="list-unstyled pl-0">
+                            <li>
+                               <h5>Date:</h5>
+                                {{protfolio.deleiveri_data}}
+                            </li>
+                             <li>
+                                <h5>Client:</h5>
+                              {{protfolio.client}}
+                            </li> 
+
+                            <li>
+                                <h5>Location:</h5>
+                               {{protfolio.location}}
+                            </li>
+
+                             <li>
+                                <h5>Category:</h5>
+                                {{protfolio.category}}
+                            </li>
+
+                             <li>
+                               <h5>Project Link:</h5>
+                                <a href="{{protfolio.projects_link}}">Project Links</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </div>
+</section>
+
+{%endblock%}

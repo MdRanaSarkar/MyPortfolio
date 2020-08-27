@@ -1,0 +1,28 @@
+{% load static %}
+<section class="section secondary-bg" id="services">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<div class="section-title text-center">
+					<h2 class="mb-4 text-lg">My services</h2>
+					<p>"Customer service shouldn't just be a department, it should be the entire company." Tony Hsieh</p>
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			{%for p in services%}
+			<div class="col-lg-4 col-md-6">
+				<div class="service-item">
+					<div class="d-flex align-items-center mb-4">
+						<i class="{{p.services_class}}"></i>
+						<h4>{{p.category}}</h4>
+					</div>
+					<p>{{p.title}}</p>
+
+					<a href="service-single.html" class="read-more">Learn More <i class="fa fa-angle-right"></i></a>
+				</div>
+			</div>
+			{%endfor%}
+		</div>
+	</div>
+</section>

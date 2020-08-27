@@ -1,0 +1,123 @@
+{% extends "index.html" %}
+{% load static %}
+  {% block titlee%}
+      Single Services
+  {% endblock titlee %}
+{%block mainbody%}
+<section class="page-title bg-2">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+          <h1>{{services.category}}</h1>
+          <p>{{services.title}}</p>
+      </div>
+
+      <div class="col-lg-5">
+        <ul class="list-inline header-breadcumb text-lg-right mt-5 mt-lg-0">
+          <li class="list-inline-item"><a href="{%url 'home'%}">Home</a></li>
+          <li class="list-inline-item">/</li>
+          <li class="list-inline-item">{{services.category}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section service-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="service-details">
+                    <img style="height: 370px;" src="{{services.imageurl}}" alt="" class="img-fluid">
+                    <div class="details mt-4">
+                        <div class="title mb-30">
+                            <h2>Service Description</h2>
+                        </div>
+                        <p>{{services.description|safe}}</p>
+                    </div>
+                </div>
+
+                <div class="process-wrap mt-5">
+                    <div class="title mb-30 ">
+                        <h2>How we works</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="block mb-30">
+                                <h5 class="mb-3"><span>01.</span>Consultation</h5>
+                                <p>My site is my storefront. It invites in those with whom I would like to work with. It is a validator – it’s the place where potential clients go to see that I am what I say I stand for.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="block mb-30">
+                                <h5 class="mb-3"><span>02.</span>Research</h5>
+                                <p>A properly developed e-business strategy and tools that are well suited for the ... Peer-review under responsibility of Universal Society for Applied Research</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                             <div class="block mb-30">
+                                <h5 class="mb-3"><span>03.</span>Strategy Development</h5>
+                                <p>Strategy development, also known as strategic planning, is fundamental to creating and running a business.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                             <div class="block mb-30">
+                                <h5 class="mb-3"><span>04.</span>Technical Solution</h5>
+                                <p>We ensure 100% appropriate solutions</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-btn mt-5">
+                        <h3>Have a project on mind? Lets work together</h3>
+                        <a href="contact" class="btn btn-secondary btn-rounded mt-4">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="page-sidebar">
+                    <div class="service-list">
+                        <h3 class="mb-3">Digital Marketing solutions that you need</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, sequi.</p>
+                        <ul class="list-unstyled my-4 pl-0">
+                            <li><i class="ti-check"></i>Search Engine Optimization</li>
+                            <li><i class="ti-check"></i>Pay-Per-Click</li>
+                            <li><i class="ti-check"></i>Social Media Marketing</li>
+                            <li><i class="ti-check"></i>Email Marketing</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-info">
+                        <h3>Contact Info</h3>
+
+                        <ul class="list-unstyled pl-0">
+                            <li>
+                                <div class="d-flex">
+                                    <div class="icon"><i class="ti-location-pin"></i></div>
+                                    27/28 Chandromollika Avenue Dhaka 1000
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex">
+                                    <div class="icon"><i class="ti-headphone-alt"></i></div>
+                                   01704246120
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex">
+                                    <div class="icon"><i class="ti-help"></i></div>
+                                   ranasarkar1503031@email.com
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </div>
+</section>
+
+
+{%endblock%}

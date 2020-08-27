@@ -1,0 +1,280 @@
+{% extends "index.html"%}
+{% load crispy_forms_tags %}
+{%load static%}
+{% load embed_video_tags %}
+{% block titlee%}
+	My Protfolio
+{% endblock titlee %}
+{%block mainbody%}
+{% include "header.html" %}
+{% include "slider.html" %}
+{% include "intro.html" %}
+<section class="section-bottom experience">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="title">
+					<h2>Specialized Area</h2>
+				</div>
+			</div>	
+		</div>
+		<div class="row">
+			{{items.specialized_field}}
+			{% for p in items%}
+				
+			
+			<div class="col-lg-6 col-md-6">
+				<div class="skill-bar mb-2 mb-lg-0">
+					<div class="mb-4 text-right"><h4 class="font-weight-normal">{{p.specialized_field}} </h4></div>
+					<div class="progress">
+						<div class="progress-bar" data-percent="{{p.ranking}}">
+							<span class="percent-text"><span class="count">{{p.ranking}}</span>%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<section class="section secondary-bg" id="services">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<div class="section-title text-center">
+					<h2 class="mb-4 text-lg">My services</h2>
+					<p>"Customer service shouldn't just be a department, it should be the entire company." Tony Hsieh</p>
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			{%for p in services%}
+			<div class="col-lg-4 col-md-6">
+				<div class="service-item">
+					<div class="d-flex align-items-center mb-4">
+						<i class="{{p.services_class}}"></i>
+						<h4>{{p.category}}</h4>
+					</div>
+					<p>{{p.title}}</p>
+
+					<a href="{%url 'services_individual' id=p.id%}" class="read-more">Learn More <i class="fa fa-angle-right"></i></a>
+				</div>
+			</div>
+			{%endfor%}
+		</div>
+	</div>
+</section>
+<section class="section portfolio" id="portfolio">
+  <div class="container">
+  	 <div class="row justify-content-center">
+		<div class="col-lg-6">
+			<div class="section-title text-center">
+				<h2 class="mb-4 text-lg">Work Portfolio</h2>
+				<p>“Success is not final; failure is not fatal: it is the courage to continue that counts.” – Winston Churchill</p>
+			</div>
+		</div>
+	</div>
+
+      <div class="col-12 text-center  mb-5">
+        <div class="btn-group btn-group-toggle " data-toggle="buttons">
+          <label class="btn active ">
+            <input type="radio" name="shuffle-filter" value="all" checked="checked" />All
+          </label>
+          {% for p in working_prot  %}
+          <label class="btn ">
+            <input type="radio" name="shuffle-filter" value="design" />{{p.category}}
+          </label>
+           {% endfor %}
+        </div>
+      </div>
+
+    <div class="row shuffle-wrapper portfolio-gallery">
+    	{% for p in working_prot %}
+    		
+    
+      	<div class="col-lg-4 col-md-6 col-12 mb-4 shuffle-item" data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+	      	<div class="portfolio-item mb-4">
+				<img style="height: 200px; width:250px " src="{{p.imageurl}}" alt="" class="img-fluid">
+				<div class="overlay-content">
+					<h5>{{p.title}}</h5>
+					<a href="{{p.imageurl}}" class="portfolio-image popup-gallery"><i class="ti-zoom-in"></i></a>	
+					<a href="{%url 'protfolio_individual' id=p.id %}"><i class="ti-link"></i></a>	
+				</div>
+			</div>
+      	</div>
+      		{% endfor %}
+    </div>
+
+    <div class="row justify-content-center">
+    	<div class="col-lg-8">
+    		<div class="text-center mt-5">
+    			<a href="#testimonial" class="btn btn-main btn-rounded smoth-scroll">Read Success Story</a>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</section>
+<!--This is the starting for working experience-->
+<section class="section experience" id="skills">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="title">
+					<h2>Work Experience</h2>
+				</div>
+			</div>	
+		</div>
+
+		<div class="row">
+			{% for p in experience_w  %}
+				
+
+					<div class="col-lg-6">
+						<div class="content mb-4">
+							<h4>{{p.w_category}}</h4>
+							<span class="text-color">{{p.W_area}}[{{p.yearstart}}-{{p.yearend}}]</span>
+							<p>{{p.w_comment}}</p>
+						</div>
+				
+					</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<!--This is the ending for working experience-->
+
+
+{% include "working_experience.html" %}
+{% include "our_team.html" %}
+<!--Starts herer News feed-->
+<section class="section" id="blog">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<div class="section-title text-center">
+					<h2 class="mb-4 text-lg">News Feed</h2>
+					<p>"So many people in my life need prayers, and I feel like I owe that to them. After all, in heaven, we feed each other."
+					-- Jill Bide</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+		{% for p in youtube %}
+				
+			
+			<div class="col-lg-4 col-md-6 ">
+				<div class="blog-item mb-5 mb-lg-0">
+				{% video p.video '100%x150%' %}
+				</div>
+			 </div>
+
+          {% endfor %}
+
+
+		</div>
+	</div>
+</section>
+<!--End here News feed-->
+
+<!--Start Client says  -->
+<section class="section" id="testimonial">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5">
+				<div class="title">
+					<h2 class="mb-5 text-lg">Clients says</h2>
+					<p class="mb-5 ">There is a spiritual aspect to our lives — when we give, we receive — when a business does something good for somebody, that somebody feels good about them!.</p>
+					<a href="#contact" class="btn btn-main btn-rounded smoth-scroll">Get start<i class="fa fa-angle-right ml-2"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-7">
+				<div class="main-slider ">
+					{% for p in client_says %}
+						
+				
+					<div class="testimonial-item d-flex align-items-center">
+						<div class="testimonial-content ">
+							<i class="ti-quote-left "></i>
+							<h4 class="mb-3 text-color mt-2">{{p.subject}}</h4>
+							<p>{{p.comment}} .</p>
+							<div class="info">
+								<h5 class="mb-1">{{p.name}}</h5>
+								<p class="text-sm">motivated</p>
+							</div>
+						</div>
+						<div class="testimonial-image">
+							<img src="assets/images/test-1.jpg" alt="" class="img-fluid">
+						</div>
+					</div>
+						{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--End Client says -->
+
+
+<!--Commment Start from here  {% include "comment_form.html" %}-->
+
+<section class="section" id="contact">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<div class="section-title text-center">
+					<h2 class="mb-4 text-lg">Let's Get started</h2>
+					<p>
+						“Observing and commenting, it is a piece of cake.
+						Experiencing and sharing, that is a piece of work.”
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				<form class="contact__form form-row contact-form" method="POST" id="contactForm">
+					{%csrf_token%}
+			
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="form-group">
+					  {{form.name|as_crispy_field}}
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								{{form.email|as_crispy_field}}
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<div class="form-group">
+								{{form.subject|as_crispy_field}}
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<div class="form-group">
+								{{form.comment|as_crispy_field}}	
+							</div>
+						</div>
+					</div>
+					<input type="submit" class="btn btn-success" name="submit" value="Send Message">
+						 <div class="row">
+		                        <div class="col-12">
+		                            <div class="alert alert-success contact__msg" style="display: none" role="alert">
+		                                Your message was sent successfully.
+		                            </div>
+		                        </div>
+                   		 </div>
+
+
+				</form>	
+			</div>
+		</div>
+	</div>
+</section>
+<!--Commment end from here  {% include "comment_form.html" %}-->
+{%endblock%}

@@ -1,0 +1,53 @@
+<!-- portfolio -->
+{% load static %}
+<section class="section portfolio" id="portfolio">
+  <div class="container">
+  	 <div class="row justify-content-center">
+		<div class="col-lg-6">
+			<div class="section-title text-center">
+				<h2 class="mb-4 text-lg">Work Portfolio</h2>
+				<p>“Success is not final; failure is not fatal: it is the courage to continue that counts.” – Winston Churchill</p>
+			</div>
+		</div>
+	</div>
+
+      <div class="col-12 text-center  mb-5">
+        <div class="btn-group btn-group-toggle " data-toggle="buttons">
+          <label class="btn active ">
+            <input type="radio" name="shuffle-filter" value="all" checked="checked" />All
+          </label>
+          {% for p in working_prot  %}
+          <label class="btn ">
+            <input type="radio" name="shuffle-filter" value="design" />{{p.category}}
+          </label>
+           {% endfor %}
+        </div>
+      </div>
+
+    <div class="row shuffle-wrapper portfolio-gallery">
+    	{% for p working_prot in  %}
+    		
+    
+      	<div class="col-lg-4 col-md-6 col-12 mb-4 shuffle-item" data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+	      	<div class="portfolio-item mb-4">
+				<img src="{{p.imageurl}}" alt="" class="img-fluid">
+				<div class="overlay-content">
+					<h5>{{p.title}}</h5>
+					<a href="{{p.imageurl}}" class="portfolio-image popup-gallery"><i class="ti-zoom-in"></i></a>	
+					<a href="portfolio-single.html"><i class="ti-link"></i></a>	
+				</div>
+			</div>
+      	</div>
+      		{% endfor %}
+    </div>
+
+    <div class="row justify-content-center">
+    	<div class="col-lg-8">
+    		<div class="text-center mt-5">
+    			<a href="#testimonial" class="btn btn-main btn-rounded smoth-scroll">Read Success Story</a>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</section>
+<!-- /portfolio -->

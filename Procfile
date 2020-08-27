@@ -1,0 +1,1 @@
+web: gunicorn EasyCSELearn.wsgi
